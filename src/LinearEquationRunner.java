@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.text.DecimalFormat;
 public class LinearEquationRunner {
     public static void main(String[]args){
         Scanner scan = new Scanner(System.in);
@@ -20,12 +19,16 @@ public class LinearEquationRunner {
         int X2 = Integer.parseInt(x2);
         String y2 = coordinate2.substring(coordinate2.indexOf(",")+2, coordinate2.length()-1);
         int Y2 = Integer.parseInt(y2);
+        System.out.println("");
 
         if(X1==X2){
             System.out.println("These coordinates result in a vertical line: " + "X=" + X1);
         } else {
             LinearEquation equation = new LinearEquation(X1, Y1, X2, Y2);
-            System.out.println(equation.distance());
+            System.out.println(equation.lineInfo());
+            System.out.print("Enter a value for x: ");
+            double x = scan.nextDouble();
+            System.out.println(equation.coordinateForX(x));
         }
     }
 }
