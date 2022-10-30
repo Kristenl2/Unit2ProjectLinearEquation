@@ -3,7 +3,6 @@ public class LinearEquationRunner {
     public static void main(String[]args){
         Scanner scan = new Scanner(System.in);
 
-
         //welcome the user, and input/save the coordinates
         System.out.println("Welcome!");
         System.out.print("Enter coordinate 1: ");
@@ -29,6 +28,7 @@ public class LinearEquationRunner {
             System.out.print("Enter a value for x: ");
             double x = scan.nextDouble();
             System.out.println(equation.coordinateForX(x));
+
         }
     }
 }

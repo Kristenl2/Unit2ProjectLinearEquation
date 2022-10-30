@@ -1,7 +1,4 @@
-import java.text.DecimalFormat;
-
 public class LinearEquation {
-    DecimalFormat formatter = new DecimalFormat("#.##");
     //instance variables
     private int x1;
     private int y1;
@@ -16,16 +13,9 @@ public class LinearEquation {
         this.y2 = y2;
     }
 
-    //Rounds to the hundredths
-    public double roundedToHundredth(double toRound){
-        return (Math.round(toRound*100))/100;
-    }
-
-
     //Calculates and returns distance
     public double distance() {
-        double distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        return roundedToHundredth(distance);
+        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
 
     //calculates and returns the slope
@@ -67,7 +57,7 @@ public class LinearEquation {
     //Calculates and returns coordinate
     public String coordinateForX(double xValue){
         double ycoord = roundedToHundredth(xValue*slope() + yIntercept());
-        return "(" + xValue+ ", " + ycoord + ")";
+        return "(" + xValue + ", " + ycoord + ")";
     }
 
     //returns all the info
@@ -76,7 +66,12 @@ public class LinearEquation {
         info += "The equation of the line between these points is: " + equation() + "\n";
         info += "The slope of this line is: " + slope() + "\n";
         info += "The y-intercept of the line is: " + yIntercept() + "\n";
-        info += "the distance between the two points is: " + distance() + "\n";
+        info += "The distance between the two points is: " + roundedToHundredth(distance()) + "\n";
         return info ;
+    }
+
+    //Rounds to the hundredths
+    public double roundedToHundredth(double toRound){
+        return Math.round(toRound*100.0)/100;
     }
 }
